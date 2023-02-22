@@ -1,4 +1,4 @@
-import random  # library for random number generation needed for shuffling deck
+import random  # library for random number generation needed for shuffling deck...
 
 # ----------CONSTANTS----------
 SUITS = ["clubs", "diamonds", "hearts", "spades"]
