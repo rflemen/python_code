@@ -2,7 +2,7 @@ class Playing_Card:
 	"""A simple attempt to represent a playing card."""
 
 	def __init__(self, name, suit, value):
-		"""Initialize attributes to describe card."""
+		"""Initialize attributes that describe card."""
 		self.name = name
 		self.suit = suit
 		self.value = value
