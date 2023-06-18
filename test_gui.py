@@ -1,5 +1,5 @@
 from tkinter import *
-
+# Test project to learn about GUI in Python.
 
 class Application(Frame):
     def say_hi(self):
