@@ -1,4 +1,5 @@
 #!/bin/python3
+import os
 
 # Replace RPG starter project with this code when new instructions are live
 
@@ -30,12 +31,17 @@ inventory = []
 rooms = {
 
             'Hall' : { 
-                  'south' : 'Kitchen'
-                },
+                'south' : 'Kitchen',
+                'item'  : 'key'
+            },
 
             'Kitchen' : {
-                  'north' : 'Hall'
-                }
+                'north' : 'Hall',
+                'east'  : 'Library'
+            },
+            'Library' : {
+                'west'  : 'Kitchen'
+            }
 
          }
 
@@ -46,7 +52,6 @@ showInstructions()
 
 #loop forever
 while True:
-
   showStatus()
 
   #get the player's next 'move'
