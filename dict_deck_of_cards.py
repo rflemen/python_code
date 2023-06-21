@@ -26,6 +26,8 @@ k=0
 # Code needed for using dictionary - BEGIN
 deck_of_cards = []
 
+k=1
+
 for card_var_i in range(4):
 	for card_var_j in range(13):
 		new_card = {'suit': card_suit[card_var_i], 'name': card_name[card_var_j], 'value': card_value[card_var_j]}
