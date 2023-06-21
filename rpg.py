@@ -34,7 +34,6 @@ rooms = {
                 'south' : 'Kitchen',
                 'item'  : 'key'
             },
-
             'Kitchen' : {
                 'north' : 'Hall',
                 'east'  : 'Library'
