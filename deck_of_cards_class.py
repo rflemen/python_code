@@ -33,12 +33,11 @@ class Card:
 
     def display(self):
         # Display the descriptive name of a card including name and suit.
-        print("{} of {}".format(self.name.title(), self.suit.title()))
+        print(f"{self.name.title()} of {self.suit.title()}")
 
     def debug_descriptive_name(self):
         # Display full card name as well as rank and value.  Used for debugging.
-        print("{} of {} (R:{}, V:{})".format(self.name, self.suit, self.rank, self.value))
-
+        print(f"{self.name} of {self.suit} (R:{self.rank}, V:{self.value})")
 
 class Deck:
     # object to model a deck of playing cards.
