@@ -24,5 +24,5 @@ beatles.insert(0, "Ringo")
 print("Step 5:", beatles)
 
 
-# testing list legth
+# testing list length
 print("The Fab", len(beatles))
