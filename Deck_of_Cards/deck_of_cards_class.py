@@ -100,6 +100,7 @@ countSpades, countHearts, countClubs, countDiamonds = 0, 0, 0, 0
 countValue = 0
 
 for card in myHand:
+    # Count values
     countTwo += card.get_name().count('two')
     countThree += card.get_name().count('three')
     countFour += card.get_name().count('four')
@@ -113,6 +114,7 @@ for card in myHand:
     countQueen += card.get_name().count('queen')
     countKing += card.get_name().count('king')
     countAce += card.get_name().count('ace')
+    # Count suits
     countSpades += card.get_suit().count('spades')
     countHearts += card.get_suit().count('hearts')
     countClubs += card.get_suit().count('clubs')
