@@ -53,6 +53,7 @@ pattern = re.compile('''(^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:2
 valid =[] 
 invalid=[] 
 
+
 #Add valid IP Addresses to the valid list and invalid IP addresses to the invalid list
 for ip in ips: 
     ip = ip.rstrip() 
