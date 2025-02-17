@@ -74,9 +74,9 @@ print(invalid)
 # Port scan valid IP addresses
 for ip in valid: 
     if isOpen(ip, port): 
-        print(f"Port {port} is open on {ip}") 
+        print(f"Port {port} is OPEN on {ip}") 
     else: 
-        print(f"Port {port} is closed on {ip}")
+        print(f"Port {port} is CLOSED on {ip}")
 
 
 
