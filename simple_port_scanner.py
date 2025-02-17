@@ -27,8 +27,8 @@ parser.add_argument("filename", help="the file to be read")
 parser.add_argument("-p", "--port", help="the port to be scanned", type=int)
 parser.add_argument("-n", "--name", help="the name of the person running the program")
 args = parser.parse_args()
-print("The filename read in is:", args.filename)
-print("The port to be scanned is:", args.port)
+print(f"The filename read in is: {args.filename}")
+print(f"The port to be scanned is: {args.port}")
 
 
 # Argument (file name) fed to variable
