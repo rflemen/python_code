@@ -2,7 +2,20 @@
 import pyfiglet
 import re
 import argparse
- 
+import socket
+
+
+# Function to check if a port is open on an IP address
+def isOpen(ip,port):
+   s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+   try:
+      s.connect((ip, int(port)))
+      s.shutdown(2)
+      return True
+   except:
+      return False
+
+
 banner = pyfiglet.figlet_format("Simple Port Scanner")
 print(banner)
 print("\t\t\t by Rob Flemen\n")
@@ -16,7 +29,7 @@ parser.add_argument("-n", "--name", help="the name of the person running the pro
 args = parser.parse_args()
 print("The filename read in is:", args.filename)
 print("The port to be scanned is:", args.port)
-print("The name of the person running the program is:", args.name)
+
 
 # Argument (file name) fed to variable
 filename = args.filename
@@ -39,7 +52,7 @@ pattern = re.compile('''(^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:2
 valid =[] 
 invalid=[] 
 
-
+#Add valid IP Addresses to the valid list and invalid IP addresses to the invalid list
 for ip in ips: 
     ip = ip.rstrip() 
     result = pattern.search(ip) 
@@ -48,15 +61,22 @@ for ip in ips:
       valid.append(ip) 
     # invalid IP addresses   
     else: 
-      invalid.append(ip) 
-  
+      invalid.append(ip)
+
 
 # Displaying the IP addresses (just for debugging) 
-print("Valid IPs") 
+print(f"{args.name}, your list contains these valid IPs and they will be scanned") 
 print(valid)
-
-print("Invalid IPs") 
+print(f"{args.name}, your list contains these invalid IPs and they will not be scanned") 
 print(invalid) 
+
+
+# Port scan valid IP addresses
+for ip in valid: 
+    if isOpen(ip, port): 
+        print(f"Port {port} is open on {ip}") 
+    else: 
+        print(f"Port {port} is closed on {ip}")
 
 
 
