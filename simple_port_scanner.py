@@ -16,9 +16,10 @@ def isOpen(ip,port):
       return False
 
 
-banner = pyfiglet.figlet_format("Simple Port Scanner")
+banner = pyfiglet.figlet_format("Port Scanner")
+print("A SIMPLE...")
 print(banner)
-print("\t\t\t by Rob Flemen\n")
+print("\t\t\t\t\t\t by Rob Flemen\n")
 
 
 #Take filename as argument
@@ -28,7 +29,7 @@ parser.add_argument("-p", "--port", help="the port to be scanned", type=int)
 parser.add_argument("-n", "--name", help="the name of the person running the program")
 args = parser.parse_args()
 print(f"The filename read in is: {args.filename}")
-print(f"The port to be scanned is: {args.port}")
+print(f"The port to be scanned is: {args.port}\n")
 
 
 # Argument (file name) fed to variable
@@ -67,16 +68,17 @@ for ip in ips:
 # Displaying the IP addresses (just for debugging) 
 print(f"{args.name}, your list contains these valid IPs and they will be scanned") 
 print(valid)
-print(f"{args.name}, your list contains these invalid IPs and they will not be scanned") 
+print(f"\n{args.name}, your list contains these invalid IPs and they will not be scanned") 
 print(invalid) 
 
 
 # Port scan valid IP addresses
+print(f"\nScanning port {port} on the following IP addresses...")
 for ip in valid: 
     if isOpen(ip, port): 
-        print(f"Port {port} is OPEN on {ip}") 
+        print(f"[+]\tPort {port} is OPEN on {ip}") 
     else: 
-        print(f"Port {port} is CLOSED on {ip}")
+        print(f"[-]\tPort {port} is CLOSED on {ip}")
 
 
 
