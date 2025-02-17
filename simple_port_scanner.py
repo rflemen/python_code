@@ -17,7 +17,7 @@ def isOpen(ip,port):
 
 
 banner = pyfiglet.figlet_format("Port Scanner")
-print("A SIMPLE...")
+print("\nA SIMPLE...")
 print(banner)
 print("\t\t\t\t\t\t by Rob Flemen\n")
 
