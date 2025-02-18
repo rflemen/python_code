@@ -9,7 +9,7 @@ import time
 
 
 banner = pyfiglet.figlet_format("Port Scanner")
-print("\nA Threaded...")
+print("\nThreaded...")
 print(banner)
 print("\t\t\t\t\t\t by Rob Flemen\n")
 
@@ -86,6 +86,7 @@ def run_scanner(threads, mode):
     print("--------------------------")
     print(f"[\N{CHECK MARK}]\t{len(open_ports)} ports are open:", open_ports)
     print(f"[!]\t{len(closed_ports)} ports are closed.")
-    print(f"[?]\tScan duration: {duration:.2f} seconds.\n")
+    print(f"[?]\t{len(closed_ports) + len(open_ports)} port scanned in {duration:.2f} seconds.")
+    print(f"[?]\tScanned {int(((len(closed_ports) + len(open_ports))/duration))} ports per second.\n")
 
-run_scanner(900, scanMode)
+run_scanner(1800, scanMode)
