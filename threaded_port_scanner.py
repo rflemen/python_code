@@ -1,5 +1,4 @@
 # Multithreaded Port Scanner
-# by NeuralNine Copyright (c) 2019
 from queue import Queue
 import socket
 import threading
