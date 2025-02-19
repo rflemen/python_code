@@ -1,5 +1,6 @@
 # Multithreaded Port Scanner
 from queue import Queue
+import progressbar
 import socket
 import threading
 import argparse
@@ -83,7 +84,7 @@ def worker():
         port = queue.get()
         if portscan(port):
             print("[\N{CHECK MARK}]\tPort {} is open!".format(port))
-            open_ports.append(port)
+            open_ports.append(port)   
         else:
             closed_ports.append(port)
 
