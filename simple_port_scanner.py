@@ -1,4 +1,4 @@
-# A simple multithreaded port scanner written by Rob Flemen
+# A simple single threaded port scanner written by Rob Flemen
 import pyfiglet
 import re
 import argparse
