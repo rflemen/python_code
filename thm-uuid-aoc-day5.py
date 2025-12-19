@@ -1,5 +1,5 @@
 # Use this to generate UUIDs for Advent of Cyber 2025 Day 5 Bonus Question #2
-# Written by Rob Flemen with assistance from Chat
+# Written by Rob Flemen with assistance from ChatGPT
 # December 18th, 2025
 
 import uuid
