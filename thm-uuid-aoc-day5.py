@@ -1,3 +1,7 @@
+# Use this to generate UUIDs for Advent of Cyber 2025 Day 5 Bonus Question #2
+# Written by Rob Flemen with assistance from Chat
+# December 18th, 2025
+
 import uuid
 import datetime
 import random
