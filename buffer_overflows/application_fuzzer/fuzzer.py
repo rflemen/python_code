@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # Application fuzzer for crashing apps for simple buffer overflow practice
-# NOTE: This is an around about offset, you should not rely on this alone, 
-# you need to do pattern matching to find exact offset!
+# NOTE: This is an around about offset, you should not rely on this alone 
+# ypu need to do pattern matching to find exact offset!
 #
 # Written by Rob Flemen
 # 12/24/2025
@@ -42,11 +42,11 @@ while True:
         buffer += b"\r\n"
         print(f"[\033[94mStatus:\033[00m] Fuzzing with {len(buffer)} total bytes")
 
-	    # send buffer (bytes for python3)
+	#send buffer (bytes for python3)
         s.send(buffer)
         s.close()
 
-	    # Increment payload and wait so we don't flood
+	# Increment payload and wait so we don't flood
         payload_size += payload_increment
         sleep(0.25)
 
