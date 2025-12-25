@@ -15,7 +15,7 @@ import argparse
 parser = argparse.ArgumentParser(description="A script that fuzzes an app for buffer overflow.")
 parser.add_argument("--ip", required=True, help="Target IP")
 parser.add_argument("--port", required=True, type=int, help="Target port")
-parser.add_argument("--prefix", default="", help="OPTIONAL: buffer prefix (e.g. 'TRUN .')")
+parser.add_argument("--prefix", default="", help="OPTIONAL: Buffer prefix (e.g. 'TRUN .')")
 parser.add_argument("--bytes", default=10, type=int, help="OPTIONAL: Bytes to send in payload and increment (Default = 10)")
 args = parser.parse_args()
 
