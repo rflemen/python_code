@@ -19,7 +19,7 @@ parser.add_argument("--prefix", default="", help="OPTIONAL: Buffer prefix (e.g. 
 parser.add_argument("--bytes", default=10, type=int, help="OPTIONAL: Bytes to send in payload and increment (Default = 10)")
 args = parser.parse_args()
 
-# Input validation for --bytes optional argument
+# Input validation for --bytes optional argument, has to be greater than 0
 if args.bytes <= 0:
     print("[\033[91mx\033[00m]Bytes must be greater than 0")
     sys.exit(1)
@@ -32,21 +32,21 @@ payload_increment = args.bytes
 while True:
     try:
 
-        # Create socket per attempt
+        # Create new socket per attempt
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         s.connect((args.ip, args.port))
 
         # Rebuild buffer every iteration and send output to screen
-        buffer = args.prefix.encode()
+        buffer = args.prefix.encode() # Encode args.prefix to bytes for python3
         buffer += b"A" * payload_size
         buffer += b"\r\n"
         print(f"[\033[94mStatus:\033[00m] Fuzzing with {len(buffer)} total bytes")
 
-	#send buffer (bytes for python3)
+	    # Send buffer (in bytes for python3)
         s.send(buffer)
         s.close()
 
-	# Increment payload and wait so we don't flood
+	    # Increment payload and wait short time so we don't flood!
         payload_size += payload_increment
         sleep(0.25)
 
