@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # Application fuzzer for crashing apps for simple buffer overflow practice
 # NOTE: This is an around about offset, you should not rely on this alone 
-# ypu need to do pattern matching to find exact offset!
+# you need to do pattern matching to find exact offset!
 #
 # Written by Rob Flemen
 # 12/24/2025
