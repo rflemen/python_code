@@ -4,6 +4,8 @@
 # you need to do pattern matching to find exact offset!
 #
 # Written by Rob Flemen
+# Author Github: https://github.com/rflemen
+# Author YouTube: https://www.youtube.com/@RobFlemen 
 # 12/24/2025
 
 import socket
