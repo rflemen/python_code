@@ -1,6 +1,9 @@
 # Use this to generate UUIDs for Advent of Cyber 2025 Day 5 Bonus Question #2
-# Written by Rob Flemen with assistance from ChatGPT
-# December 18th, 2025
+
+# Written by Rob Flemen
+# Author Github: https://github.com/rflemen
+# Author YouTube: https://www.youtube.com/@RobFlemen 
+# 12/18/2025
 
 import uuid
 import datetime
