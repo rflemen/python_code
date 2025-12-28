@@ -26,6 +26,19 @@ if args.bytes <= 0:
     print("[\033[91mx\033[00m]Bytes must be greater than 0")
     sys.exit(1)
 
+
+### PRINT BANNER ###        
+print("eXPLoiT By:                ")
+print("        ,------.           ")            
+print(",--,--, |  .--. ',--,--,--.") 
+print("|      ;|  '--' ||        |") 
+print("|  ||  ||  | --' |  |  |  |") 
+print("`--''--'`--'     `--`--`--'")                            
+print("Application Fuzzer for Buffer Overflow Practice")
+sleep(2)
+
+
+### EXPLOIT ###
 # Setup payload size and increment, default is 10 if not specified by user 
 # 10 is sweet spot if you ask me :)
 payload_size = args.bytes
