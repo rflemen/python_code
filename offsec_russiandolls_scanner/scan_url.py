@@ -40,7 +40,7 @@ time.sleep(2)
 base_url = args.url
 open = 0
 
-for port in range (8100):
+for port in range (8100): # you can change 8100 to 65535 to scan all ports, or set a custom range.
     target_url = base_url + ":" + str(port)
     response = requests.get(target_url, timeout=3)
     if response.status_code != 500:
