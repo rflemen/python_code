@@ -13,9 +13,6 @@ import sys
 from time import sleep
 import argparse
 
-# Example URL for Offsec Proving Grounds machine "RussianDolls:
-# http://192.168.165.113:8080/image?image=http://localhost
-
 # Setup arguments and parser
 parser = argparse.ArgumentParser(description="A script that fuzzes an app for buffer overflow.")
 parser.add_argument("--ip", required=True, help="Target IP")

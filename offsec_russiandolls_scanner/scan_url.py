@@ -15,6 +15,9 @@ import requests
 import argparse
 import time
 
+# Example URL for Offsec Proving Grounds machine "RussianDolls:
+# http://192.168.165.113:8080/image?image=http://localhost
+
 # Setup arguments and parser
 parser = argparse.ArgumentParser(description="A script that fuzzes a URL for response code 200 for SSRF.")
 parser.add_argument("--url", required=True, help="Target url")
