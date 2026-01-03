@@ -16,7 +16,7 @@ import argparse
 from collections import Counter
 
 # Example usage:
-# python3 ssrf-fuzzer.py --url http://192.168.165.113:8080/image?image=http://localhost
+# python3 scan_url.py --url http://192.168.165.113:8080/image?image=http://localhost
 
 # Set up arguments
 parser = argparse.ArgumentParser(description="Fuzzes a base SSRF URL for non-500 responses.")
