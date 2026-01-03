@@ -54,10 +54,8 @@ for port in range(args.range):
             open_count += 1
             print(f"[\033[92m✓\033[00m] Port {port} --> Status: \033[92m{code}\033[00m")
     except requests.exceptions.Timeout:
-        print(f"[!] Port {port} --> Timeout")
         status_counts["timeout"] += 1
     except requests.exceptions.RequestException as e:
-        print(f"[!] Port {port} --> Error: {e.__class__.__name__}")
         status_counts["error"] += 1
 
 
