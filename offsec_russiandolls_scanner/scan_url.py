@@ -1,16 +1,15 @@
 #!/usr/bin/python3
-# URL fuzzer written for Offsec Proving Grounds machine "RussianDolls"
-# # NOTE: The server first appears to be vulnerable to RFI but I couldn't seem to
+# SSRF URL fuzzer written for Offsec Proving Grounds machine "RussianDolls"
+# NOTE: The server first appears to be vulnerable to RFI but I couldn't seem to
 # take advantage of that. Because of the way the url is accessing local resources
 # I decided to scan for ports only open on the local machine to see if we could
-# take advantage that way. Doing all 65535 port is pretty slow but you can just 
-# change loop iteration if you would like. 
+# take advantage that way. Doing all 65535 port is VERY slow but you can just 
+# change loop iteration if you would like using optional start and end port args. 
 #
 # Written by Rob Flemen
 # Author Github: https://github.com/rflemen
 # Author YouTube: https://www.youtube.com/@RobFlemen 
 # 12/31/2025
-
 
 import requests
 import argparse
