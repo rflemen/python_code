@@ -1,0 +1,18 @@
+Set working directory:
+!mona config -set workingfolder c:\\mona\\%p
+
+Create bad character array:
+!mona bytearray -b "<bad chars>"
+
+Compare memory to bad char array:
+!mona compare -f C:\mona\oscp\bytearray.bin -a <esp register address>
+
+Figure out jmp_esp:
+!mona jmp -r esp -cpb "<bad character array>"
+
+
+
+NOPS:
+Stack randomization and other runtime differences may make the address where the program will jump impossible to predict, so the attacker places a NOP sled in a big range of memory. If the program jumps to anywhere into the sled, it will run all the remaining NOPs, doing nothing, and then will run the payload code, just next to the sled.
+
+NOTE: x86 architecture the NOP instruction is equivalent to the hex byte x90
