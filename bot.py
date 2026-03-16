@@ -14,7 +14,7 @@ load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
 YOUTUBE_API_KEY = os.getenv('YOUTUBE_API_KEY')
 YOUTUBE_CHANNEL_ID = os.getenv('YOUTUBE_CHANNEL_ID')
-DISCORD_CHANNEL_ID = int(os.getenv('DISCORD_CHANNEL_ID', '1429555503100461076'))
+DISCORD_CHANNEL_ID = int(os.getenv('DISCORD_CHANNEL_ID', '<redacted>'))
 
 # Setup bot
 intents = discord.Intents.default()
